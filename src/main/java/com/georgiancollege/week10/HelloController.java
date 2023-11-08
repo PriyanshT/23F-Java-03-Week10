@@ -11,7 +11,7 @@ public class HelloController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
 
-        ApiResponse apiResponse = ApiUtility.getDataFromFile("apiData.json");
+        ApiResponse apiResponse = ApiUtility.getDataFromAPIQuick("hulk");
         System.out.println(apiResponse);
     }
 }
