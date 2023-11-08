@@ -44,9 +44,15 @@ public class ApiUtility {
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(uri)).build();
-        HttpResponse<Path> response = httpClient.send(httpRequest, HttpResponse
-                .BodyHandlers
-                .ofFile(Paths.get("javaApiFetched.json")));
 
+        try {
+            HttpResponse<Path> response = httpClient.send(httpRequest, HttpResponse
+                    .BodyHandlers
+                    .ofFile(Paths.get("javaApiFetched.json")));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return getDataFromFile("javaApiFetched.json");
     }
 }
